@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <nav class="navar bg bg-body-tertiary" th:fragment="header">
+    <div class="container-fluid">
+        <a class ="navbar-brand"th:href="@{/topmenu}">商品管理システム</a>
+    </div>
+    <form th:action="@{/logout}"method="post">
+        <span class="text-light" th:text="|ログインID：${#authentication.principal.username}|"></span>
+        <input type="submit" class="logoutbutton" value="ログアウト"></input>
+        
+    </form>    
+</body>
+</html>
