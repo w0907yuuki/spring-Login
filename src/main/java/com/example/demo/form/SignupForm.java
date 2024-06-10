@@ -2,6 +2,7 @@ package com.example.demo.form;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 @Data
@@ -22,7 +23,9 @@ public class SignupForm {
 	private String birthday;
 	
 	private String gender;
+	
 	@NotNull
+	@Pattern(regexp = "^[A-Za-z0-9+_.-]+@([A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9]*\\.)+[A-Za-z]{2,}$", message = "{signup.invalidMailAddress}")
 	private String mailaddress;
 	
 	/** ログインID */

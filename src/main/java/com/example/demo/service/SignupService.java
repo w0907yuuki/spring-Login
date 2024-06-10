@@ -25,5 +25,5 @@ public interface SignupService {
 	 * @param form 入力情報
 	 * @return 登録情報(ユーザー情報Entity)、既に同じユーザIDで登録がある場合はEmpty
 	 */
-	public Optional<User> resistUser(SignupForm form);
+	public Optional<User> resistUserInfo(SignupForm form);
 }

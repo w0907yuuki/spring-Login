@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.constant.UrlConst;
+import com.example.demo.constant.ViewNameConst;
 import com.example.demo.form.LoginForm;
 import com.example.demo.service.LoginService;
 
@@ -27,13 +28,13 @@ public class LoginController {
 	@GetMapping(UrlConst.LOGIN)
 	public String view(Model model,LoginForm loginForm) {
 
-		return"login";
+		return ViewNameConst.LOGIN;
 	}
 	@GetMapping(value=UrlConst.LOGIN,params="error")
 	public String viewWithError(Model model,LoginForm loginForm) {
 		var errorInfo =(Exception)session.getAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
 		model.addAttribute("errorMsg",errorInfo.getMessage());
-		return"login";
+		return ViewNameConst.LOGIN;
 	}
 	
 	//Postが送られたら実行する
@@ -46,7 +47,7 @@ public class LoginController {
 			return "redirect:/topmenu";
 		}else {
 			model.addAttribute("errorMsg","エラー");
-			return"login";
+			return ViewNameConst.LOGIN;
 		}
 		
 	}

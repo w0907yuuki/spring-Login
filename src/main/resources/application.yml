@@ -4,6 +4,10 @@ spring:
   # Open Session in Viewの使用有無
  jpa:
   open-in-view: false
+  show-sql: true
+  properties:
+   hibernate:
+    format_sql: true
 # メール配信用アカウント接続情報
  mail:
   host: smtp.gmail.com
