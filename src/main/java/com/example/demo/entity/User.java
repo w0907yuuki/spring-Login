@@ -66,6 +66,10 @@ public class User {
 	@Convert(converter = UserAuthorityConverter.class)
 	private AuthorityKind authorityKind;
 	
+	/** 本登録完了有無(仮登録状態ならfalse)*/
+	@Column(name = "is_signup_completed")
+	private boolean signupCompleted;
+	
 	/** 登録日時 */
 	@Column(name = "create_time")
 	private LocalDateTime createTime;
@@ -95,7 +99,7 @@ public class User {
 	 * @return ログイン失敗回数がインクリメントされたUserInfo
 	 */
 	public User incrementLoginFailureCount() {
-		return new User(firstname,lastname,birthyear,birthmon,birthday,gender,mailaddress,userid, password, ++loginFailureCount, accountLockedTime, userStatusKind,authorityKind,createTime,updateTime,updateUser,oneTimeCode,oneTimeCodeSendTime);
+		return new User(firstname,lastname,birthyear,birthmon,birthday,gender,mailaddress,userid, password, ++loginFailureCount, accountLockedTime, userStatusKind,authorityKind,signupCompleted,createTime,updateTime,updateUser,oneTimeCode,oneTimeCodeSendTime);
 	}
 
 	/**
@@ -104,7 +108,7 @@ public class User {
 	 * @return ログイン失敗情報がリセットされたUserInfo
 	 */
 	public User resetLoginFailureInfo() {
-		return new User(firstname,lastname,birthyear,birthmon,birthday,gender,mailaddress,userid, password, 0, null, userStatusKind,authorityKind,createTime,updateTime,updateUser,oneTimeCode,oneTimeCodeSendTime);
+		return new User(firstname,lastname,birthyear,birthmon,birthday,gender,mailaddress,userid, password, 0, null, userStatusKind,authorityKind,signupCompleted,createTime,updateTime,updateUser,oneTimeCode,oneTimeCodeSendTime);
 	}
 
 	/**
@@ -113,7 +117,7 @@ public class User {
 	 * @return ログイン失敗階位数、アカウントロック日時が更新されたUserInfo
 	 */
 	public User updateAccountLocked() {
-		return new User(firstname,lastname,birthyear,birthmon,birthday,gender,mailaddress,userid, password, 0, LocalDateTime.now(), userStatusKind,authorityKind,createTime,updateTime,updateUser,oneTimeCode,oneTimeCodeSendTime);
+		return new User(firstname,lastname,birthyear,birthmon,birthday,gender,mailaddress,userid, password, 0, LocalDateTime.now(), userStatusKind,authorityKind,signupCompleted,createTime,updateTime,updateUser,oneTimeCode,oneTimeCodeSendTime);
 	}
 	
 }

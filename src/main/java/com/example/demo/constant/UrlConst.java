@@ -13,6 +13,12 @@ public class UrlConst {
 
 	/** ユーザー登録画面 */
 	public static final String SIGNUP = "/signup";
+	
+	/** ユーザー登録情報確認画面 */
+	public static final String SIGNUP_CONFIRM = "/signupConfirm";
+
+	/** ユーザー登録情報確認結果画面 */
+	public static final String SIGNUP_COMPLETION = "/signupCompletion";
 
 	/** メニュー画面 */
 	public static final String MENU = "/topmenu";

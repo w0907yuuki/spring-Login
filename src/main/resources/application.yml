@@ -13,13 +13,14 @@ spring:
   host: smtp.gmail.com
   port: 587
   username: edo009977yuuki@gmail.com
-  password: soccerLove200907
+  password: fqct lorb fif a dwc b
   properties:
    mail:
     smtp:
      auth: true
-    starttls:
+     starttls:
       enable: true
+      required: true
  datasource:
   url: jdbc:mysql://localhost/user?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false
   username : root

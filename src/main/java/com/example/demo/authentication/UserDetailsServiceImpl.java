@@ -79,8 +79,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	 */
 	@EventListener
 	public void handle(AuthenticationFailureBadCredentialsEvent event) {
-		var loginId = event.getAuthentication().getName();
-		repository.findById(loginId).ifPresent(userInfo -> {
+		var userid = event.getAuthentication().getName();
+		repository.findById(userid).ifPresent(userInfo -> {
 			repository.save(userInfo.incrementLoginFailureCount());
 
 			var isReachFailureCount = userInfo.getLoginFailureCount() == lockingBorderCount;
@@ -97,8 +97,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	 */
 	@EventListener
 	public void handle(AuthenticationSuccessEvent event) {
-		var loginId = event.getAuthentication().getName();
-		repository.findById(loginId).ifPresent(userInfo -> {
+		var userid = event.getAuthentication().getName();
+		repository.findById(userid).ifPresent(userInfo -> {
 			repository.save(userInfo.resetLoginFailureInfo());
 		});
 	}
